@@ -5,8 +5,27 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBookList {
-public static HashMap<String,AddressBookMain> addressbooklist;
+	/**
+	 * PROCEDURE:
+	 * 1.declaring hashmap for storing key and values in the form of address book list
+	 * 2.search details of a person by using city name
+	 * 3.search details of person by state name
+	 * 4.fetching details of person from the hashmap by the city name
+	 * 5.fetching details of person from the hashmap by state
+	 * 6.Total no of contacts means count by city name
+	 * 7.total number of contacts by  the state value
+	 * 
+	 * 
+	 * @param state - input state to get details
+	 * @param city - input value of city
+	 * 
+	 */
 	
+	/**
+	 * 1.declaring hashmap for storing key and values in the form of address book list
+	 */
+public static HashMap<String,AddressBookMain> addressbooklist;
+	//declaring constructor
 	public AddressBookList()
 	{
 		addressbooklist= new HashMap<>();
@@ -61,6 +80,10 @@ public static HashMap<String,AddressBookMain> addressbooklist;
    	  
 		
 	}
+	/**
+	 * 2.search details of a person by using city name
+	 * @param city - input city to find details of particular city
+	 */
 	 public void SearchDetailsbycityname(String city)
 	    {
 		 int flag=0;
@@ -87,6 +110,10 @@ public static HashMap<String,AddressBookMain> addressbooklist;
             	System.out.println("No body is here registered in this address book from " +city+" city name\n");
             }
 	    }
+	 /**
+	  * 3.search details of person by state name
+	  * @param state - input state to get details
+	  */
 	    public void SearchDetailsbystatename(String state)
 	    {
 	    	int flag=0;
@@ -111,7 +138,11 @@ public static HashMap<String,AddressBookMain> addressbooklist;
             	System.out.println("No body is here registered in this address book from " +state+" state name\n");
             }
 	    }
-	    public void FetchDeatilsbyCarbyHashmap(String city)
+	    /**
+	     * 4.fetching details of person from the hashmap by the city name
+	     * @param city - input name of the city
+	     */
+	    public void FetchDeatilsbyCitybyHashmap(String city)
 	    {
 	    	 for(Map.Entry<String, AddressBookMain> entry: addressbooklist.entrySet())
 	         {
@@ -119,10 +150,14 @@ public static HashMap<String,AddressBookMain> addressbooklist;
 	             System.out.println("Address Book: "+ entry.getKey());
 
 	            
-	              book.FindDetailsbyCarbyMap(city);
+	              book.FindDetailsbyCitybyMap(city);
 	         }
 	    	
 	    }
+	    /**
+	     * 5.fetching details of person from the hashmap by state
+	     * @param state - input name of the state
+	     */
 	    public void FetchDetailsbyStatebyHashmap(String state)
 	    {
 	    	 for(Map.Entry<String, AddressBookMain> entry: addressbooklist.entrySet())
@@ -135,6 +170,10 @@ public static HashMap<String,AddressBookMain> addressbooklist;
 	         }
 	    	
 	    }
+	    /**
+	     * 6.Total no of contacts means count by city name
+	     * @param city - input value of city
+	     */
 	    public void TotalcontactByCity(String city)
 	    {
 	        int count_car=0;
@@ -154,6 +193,10 @@ public static HashMap<String,AddressBookMain> addressbooklist;
 	        }
 	        System.out.println("Total number of people in this city: "+count_car);
 	    }
+	    /**
+	     * 7.total number of contacts by  the state value
+	     * @param state
+	     */
 	    public void TotalcontactByState(String state)
 	    {
 	        int count_state=0;
@@ -174,6 +217,10 @@ public static HashMap<String,AddressBookMain> addressbooklist;
 	        }
 	        System.out.println("Total number of people in this state: "+count_state);
 	    }
+	    /**
+	     * Main method to perform all operations on address book system
+	     * @param args
+	     */
 	public static void main(String[] args) 
 	{
 		System.out.println("Welcome to AddressBookManagementSystem");
@@ -210,7 +257,7 @@ public static HashMap<String,AddressBookMain> addressbooklist;
              case 4:
             	 System.out.println("Please Enter city name: ");
             	 String city_a= sc1.nextLine();
-            	 contactdetails.FetchDeatilsbyCarbyHashmap(city_a);
+            	 contactdetails.FetchDeatilsbyCitybyHashmap(city_a);
                  break;
             case 5:
             	System.out.println("Please Enter state name: ");

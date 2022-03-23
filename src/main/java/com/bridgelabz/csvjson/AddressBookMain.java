@@ -36,7 +36,12 @@ public class AddressBookMain {
 		persons_a = new HashMap<>();
 		persons_b = new HashMap<>();
 	}
-	//Method for write JSON file
+	/**
+	 * Method to write data to json file using gson library
+	 * @param addresBook --list of contacts
+	 * @return -size of the list
+	 * @throws IOException -throws IOException when input file is not exist
+	 */
 	public static int writeJson(ArrayList<Address> addresBook) throws IOException {
 		Gson gson = new GsonBuilder().create();
 		List<Address> list = addresBook.stream().collect(Collectors.toList());
@@ -46,7 +51,10 @@ public class AddressBookMain {
 		writer.close();
 		return list.size();
 	}
-	//Method for Read JSON file
+	/**
+	 * Method to read json data from the address book list
+	 * @return
+	 */
 	public static int readJson() {
 		int count = 0;
 		try {
@@ -75,7 +83,12 @@ public class AddressBookMain {
 		return count;
 	}
 
-	// Method for write CSV file
+	/**
+	 * Method to write contact details to csv file
+	 * @param addressBook - list of contacts
+	 * @return
+	 * @throws IOException - throws exception when file is not exist
+	 */
 	public static int writeCsv(ArrayList<Address> addressBook) throws IOException {
 		int count = 0;
 		try (Writer writer = Files.newBufferedWriter(Paths.get("C:\\Users\\nani\\Documents\\Java Programs\\AddressBook_CSV_JSON\\src\\test\\resources\\csvOfAddressBook.csv"));) {
@@ -96,7 +109,11 @@ public class AddressBookMain {
 
 	}
 
-	// Method for Read CSV File
+	/**
+	 * Method to read Comma separated data file data
+	 * @return
+	 * @throws IOException
+	 */
 	public static int readCsv() throws IOException {
 		int count = 0;
 		try (Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\nani\\Documents\\Java Programs\\AddressBook_CSV_JSON\\src\\test\\resources\\csvOfAddressBook.csv"));) {
@@ -119,7 +136,10 @@ public class AddressBookMain {
 		}
 		return count;
 	}
-
+	/**
+	 * method to write data to normal file which is in the text format
+	 * @param persons - List of persons
+	 */
 	public void writeData(ArrayList<Address> persons) {
 		StringBuffer empBuffer = new StringBuffer();
 		persons.forEach(employee -> {
@@ -134,7 +154,11 @@ public class AddressBookMain {
 
 		}
 	}
-
+	/**
+	 * read data from text file
+	 * @param addresslList - list of address book contacts
+	 * @return
+	 */
 	public long readData(ArrayList<Address> addresslList) {
 
 		try {
@@ -147,7 +171,7 @@ public class AddressBookMain {
 		return addresslList.size();
 
 	}
-
+	
 	public long countEntries() {
 		long entries = 0;
 		try {
@@ -190,7 +214,7 @@ public class AddressBookMain {
 
 	}
 
-	public void FindDetailsbyCarbyMap(String city) {
+	public void FindDetailsbyCitybyMap(String city) {
 
 		Address details = persons_a.get(city);
 		System.out.println("\n" + details.firstname + " " + details.lastname + " " + details.address + " "

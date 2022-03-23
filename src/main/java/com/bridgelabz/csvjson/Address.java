@@ -3,6 +3,9 @@ package com.bridgelabz.csvjson;
 import com.opencsv.bean.CsvBindByName;
 
 public class Address {
+	/**
+	 * declaring variables with using annotations
+	 */
 	@CsvBindByName
 	public String firstname;
 	@CsvBindByName
@@ -20,7 +23,17 @@ public class Address {
 	@CsvBindByName
 	public String email;
 
-	// constructor
+	/**
+	 * Here im using parametrized constuctor with the given parameters
+	 * @param firstname
+	 * @param lastname
+	 * @param address
+	 * @param city
+	 * @param state
+	 * @param zip
+	 * @param number
+	 * @param email
+	 */
 	public Address(String firstname, String lastname, String address, String city, String state, String zip,String number, String email) {
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -39,7 +52,10 @@ public class Address {
 	public void Display() {
 		System.out.println(firstname + " " + lastname + " " + address + " " + city + " " + state + " " + zip + " "+ number + " " + email);
 	}
-
+	/**
+	 * here im declaring getters and setters methods for accessing variables
+	 * @return
+	 */
 	public String getFirstname() {
 		return firstname;
 	}
